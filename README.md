@@ -6,5 +6,5 @@ This repository contains all of the notes taken by [Esther](https://github.com/e
 
 ##Table of Contents
 
-* Week 1(/W1)
-  * Day 1(/W1/D1)
+* [Week 1](/W1)
+  * [Day 1](/W1/D1)
