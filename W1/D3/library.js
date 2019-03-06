@@ -37,7 +37,7 @@ printPlaylists = function () {
     }
 }
 
-printPlaylists()
+// printPlaylists()
 
 // prints a list of all tracks, in the form:
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
@@ -52,7 +52,7 @@ var printTracks = function () {
   }
 }
 
-printTracks()
+// printTracks()
 
 // prints a list of tracks for a given playlist, in the form:
 // p01: Coding Music - 2 tracks
@@ -60,47 +60,68 @@ printTracks()
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 
 var printPlaylist = function (playlistId) {
-  for(var pl in library.playlists){
-    var currentPlayList = library.playlists[pl]
-    console.log(currentPlaylist.id + ": " + currentPlayList.name + currentPlayList.tracks.length
+  var currentPlayList = library.playlists[playlistId]
+  console.log(currentPlayList.id + ": " + currentPlayList.name + " - " + currentPlayList.tracks.length
       + " tracks")
-  }
-  // for (var tl in library.tracks) {
-  //   var currentTrackList = library.tracks[tl]
-  // }
-  // console.log(currentPlayList.id + ": " + currentTrackList.name + " by " +
-  // currentTrackList.artist + " (" + currentTrackList.album + ")")
+    for (i = 0; i < currentPlayList.tracks.length; i++) {
+    console.log(currentPlayList.tracks[i] + ": " + library.tracks[currentPlayList.tracks[i]].name
+      + " by " + library.tracks[currentPlayList.tracks[i]].artist + " ("
+      + library.tracks[currentPlayList.tracks[i]].album + ")")
+    }
 }
 
-p01.printPlayList()
+// printPlaylist("p01")
+
 
 // adds an existing track to an existing playlist
 
-// var addTrackToPlaylist = function (trackId, playlistId) {
+var addTrackToPlaylist = function (trackId, playlistId) {
+  library.playlists[playlistId].tracks.push(trackId);
+}
 
-// }
-
+// addTrackToPlaylist("t03", "p01");
+// console.log(library.playlists)
 
 // generates a unique id
 // (use this for addTrack and addPlaylist)
 
-// var uid = function() {
-//   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-// }
+var uid = function() {
+  return Math.floor((1 + Math.random())
+    * 0x10000).toString(16).substring(1);
+}
 
 
 // adds a track to the library
 
-// var addTrack = function (name, artist, album) {
+var addTrack = function (name, artist, album) {
+  var trackId = uid();
+  library.tracks[trackId] = {
+  id: trackId,
+  name: name,
+  artist: artist,
+  album: album
+  }
+}
 
-// }
+// addTrack("ILoveCodingLOL", "Esther Splett", "Stupid Face")
+// printTracks()
 
 
 // adds a playlist to the library
 
-// var addPlaylist = function (name) {
+var addPlaylist = function (name) {
+  var playlistId = uid();
+  var trackId = uid();
+  library.playlists[playlistId] = {
+  id: playlistId,
+  name: name,
+  tracks: trackId,
+  }
+}
 
-// }
+addPlaylist("Tainted Love")
+printPlaylists()
+
 
 
 // STRETCH:
