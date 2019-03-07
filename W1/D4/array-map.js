@@ -3,25 +3,22 @@ var input = [
   { x: 12, y: 5 },
   { x: 8, y: 15 }
 ];
-var result = input.map(z => { Math.pow(z) = Math.pow(x) + Math.pow(y);
 
+var result = input.map(function(num) {
+  num.z = Math.pow(num.x, 2) + Math.pow(num.y, 2)
+  console.log(num.x, num.y)
+  console.log(num.z)
+  return Math.sqrt(num.z)
 });
+
+console.log(result)
+
 
 console.log(result[0] === 5);
 console.log(result[1] === 13);
 console.log(result[2] === 17);
 
 
-// var array1 = [1, 4, 9, 16];
-
-// pass a function to map
-const map1 = array1.map(x => x * 2);
-
-// console.log(map1);
-// expected output: Array [2, 8, 18, 32]
-
-
 // Pythagorean Theorem (x^2 + y^2 = z^2)
 
-// (z * z) = (x * x) + (y * y)
 
