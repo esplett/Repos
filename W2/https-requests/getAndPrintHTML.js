@@ -1,11 +1,11 @@
 var https = require('https');
 
-function getAndPrintHTML () {
-  var requestOptions = {
-    host: 'sytantris.github.io',
-    path: '/http-examples/step2.html'
-  };
-  /* Add your code here */
+var requestOptions = {
+  host: 'sytantris.github.io',
+  path: '/http-examples/step2.html'
+};
+
+function getAndPrintHTML (options) {
   var buffer = "";
     https.get(requestOptions, function (response) {
     // set encoding of received data to UTF-8
@@ -25,8 +25,9 @@ function getAndPrintHTML () {
 
 getAndPrintHTML();
 
-
-
+//Considerations
+// What kind(s) of variable could you buffer your data with?
+// Is there a preferable type? If so, what makes it preferable?
 
 // This function should use a buffering technique to append
 // each chunk of data to a variable as it is received, and then
