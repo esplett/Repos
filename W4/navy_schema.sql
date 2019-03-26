@@ -1,0 +1,46 @@
+-- CREATE DATABASE navy_schema;
+
+DROP TABLE IF EXISTS fleet CASCADE;
+DROP TABLE IF EXISTS ship CASCADE;
+DROP TABLE IF EXISTS assignment CASCADE;
+DROP TABLE IF EXISTS sailor CASCADE;
+DROP TABLE IF EXISTS rank CASCADE;
+
+CREATE TABLE fleet (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(50)
+);
+
+CREATE TABLE rank (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(50)
+);
+
+CREATE TABLE sailor (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(50),
+  birthdate DATE
+);
+
+CREATE TABLE ship (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(50),
+  date_built DATE,
+  fleetid BIGSERIAL REFERENCES fleet(id)
+);
+
+CREATE TABLE assignment (
+  id BIGSERIAL PRIMARY KEY,
+  start_date DATE,
+  end_date DATE,
+  name VARCHAR(50),
+  rankid BIGSERIAL REFERENCES rank(id),
+  sailorid BIGSERIAL REFERENCES sailor(id),
+  shipid BIGSERIAL REFERENCES ship(id)
+);
+
+
+
+
+
+
